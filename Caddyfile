@@ -1,7 +1,2 @@
-{
-	auto_https off
-}
-
-:{$PORT} {
-	respond "Hello from Caddy on Railway!"
-}
+# Either set your Caddyfile in the Railway UI, or edit this file in your own repo.
+{$CADDYFILE}
