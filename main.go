@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"os"
 	"os/exec"
 	"strings"
@@ -25,7 +26,16 @@ func main() {
 		args = append(args, "--with", p)
 	}
 
+	log.Println("Starting build")
+
 	run("xcaddy", args...)
+
+	// print some useful debug info to the logs
+	log.Println("Build successful")
+
+	run("./caddy", "build-info")
+	run("./caddy", "list-modules")
+	run("./caddy", "environ")
 }
 
 // run runs the command at name, with the given arguments.
@@ -34,6 +44,7 @@ func run(name string, args ...string) {
 	cmd := exec.Command(name, args...)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
+	log.Println("EXEC", cmd.Args)
 	if err := cmd.Run(); err != nil {
 		if exitErr, ok := err.(*exec.ExitError); ok {
 			os.Exit(exitErr.ExitCode())
