@@ -1,7 +1,7 @@
-Caddy template for Railway
-==========================
+Caddy on Railway
+================
 
-The official template used to deploy Caddy on [Railway](https://railway.com) with one click.
+The official template used to deploy Caddy on [Railway](https://railway.com).
 
 ## How to use
 
@@ -13,13 +13,40 @@ Then on the page that opens, click **Deploy Now**:
 
 <img width="1242" height="331" alt="Click Deploy Now" src="https://github.com/user-attachments/assets/d7978bed-e6bc-49bf-b110-e04114fec1b2" />
 
-You are then brought to this screen:
+You are then brought to this screen, where you can customize your deployment first:
 
-<img width="600" alt="Template deployment screen" src="https://github.com/user-attachments/assets/ba0802e9-d7af-433b-a30d-1bee22afbf9e" />
+<img width="650" alt="Deployment screen" src="https://github.com/user-attachments/assets/7f12c51f-f712-416e-9d05-a5cac52af789" />
 
-Click **Deploy** and you're on your way!
+If you want to add any plugins, click "Configure" and paste the Go module names of plugins you want to include, separated by spaces, for example:
 
+<img width="650" alt="Adding plugins" src="https://github.com/user-attachments/assets/3fcce427-7ca2-42a2-982f-d6addfbbb576" />
+
+(You can see known available plugins on our [Download page](https://caddyserver.com/download).)
+
+Make sure you hit "Save Config" before deploying.
+
+Once it finishes deploying, you'll see a welcome page! Congrats, it worked.
 
 ## Customizing
 
-(TODO: Finish instructions)
+If you go to your new Caddy deployment, you'll see a welcome page to let you know it worked, and it offers some next steps.
+
+### Custom Caddy config
+
+Go to the Caddy service in Railway and under Settings → Upstream Repo, click "Eject":
+
+<img width="752" height="765" alt="Eject to customize" src="https://github.com/user-attachments/assets/2bc1aa46-8eb8-4ba7-85b2-ab51a79669a0" />
+
+This copies the template into your own repository to which you can then makes changes and push.
+
+### Change Caddy plugins
+
+This is as easy as editing the `CADDY_PLUGINS` variable and redeploying:
+
+<img width="1180" height="660" alt="Screenshot_20260310_120014" src="https://github.com/user-attachments/assets/55044a4a-f975-4411-bf26-f8419052c42b" />
+
+## Variables
+
+The following variables can be used with this template:
+
+- **`CADDY_PLUGINS`** The list of Caddy plugins, separated by whitespace. For example: `github.com/caddy-dns/cloudflare github.com/mholt/caddy-ratelimit` will add the Cloudflare DNS provider and a rate limiting handler.
