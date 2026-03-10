@@ -1,6 +1,12 @@
 #!/bin/sh
-set -e
+set -ex
+
+ARTIFACT=/usr/local/bin/caddy-custom
 
 xcaddy build \
     $(echo "$CADDY_PLUGINS" | tr ' \n' '\n' | sed '/^$/d' | sed 's/^/--with /') \
-    --output /usr/local/bin/caddy-custom
+    --output "$ARTIFACT"
+
+# print info for debugging/diagnostic purposes
+"$ARTIFACT" build-info
+"$ARTIFACT" list-modules
