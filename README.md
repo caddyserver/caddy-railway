@@ -25,11 +25,19 @@ If you want to add any plugins, click "Configure" and paste the Go module names 
 
 Make sure you hit "Save Config" before deploying.
 
-Once it finishes deploying, you'll see a welcome page! Congrats, it worked.
+Once it finishes deploying, you can visit it at its URL by clicking the link at this spot:
+
+<img width="525" height="211" alt="Example project link" src="https://github.com/user-attachments/assets/9211fc52-052f-471f-bba5-960c3e343a9b" />
+
+You should see a welcome page at that URL, something like this (may change from time of writing):
+
+<img width="1240" height="561" alt="Welcome page" src="https://github.com/user-attachments/assets/872b231e-c7cc-4fa4-9640-792aeedae8d3" />
+
+Congrats, it worked! Caddy has been deployed on Railway.
 
 ## Customizing
 
-If you go to your new Caddy deployment, you'll see a welcome page to let you know it worked, and it offers some next steps.
+At this point, you probably want to customize your deployment. Usually you will either serve your own static site, or proxy to another service on Railway. To do either, you'll need to "eject" the template into your own repository so you can change the config.
 
 ### Custom Caddy config
 
